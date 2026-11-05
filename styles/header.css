@@ -1,0 +1,90 @@
+/* Header and navigation styles */
+/* ---------- top nav ---------- */
+header{
+  position:sticky; top:0; z-index:20;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 24px;
+  background:linear-gradient(to bottom, rgba(18,7,12,0.96), rgba(18,7,12,0.7));
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.brandmark{
+  display:flex; 
+  align-items:center; 
+  gap:10px;
+  font-family:'Fraunces', serif;
+  font-weight:600;
+  font-size:15px;
+  letter-spacing:0.2px;
+}
+.logo{
+  width:50px;
+  height:50px;
+  object-fit:contain;
+}
+nav a{
+  text-decoration:none;
+  font-size:13px;
+  color:var(--cream-dim);
+  margin-left:20px;
+  transition:color 0.2s ease;
+}
+nav a:hover{color:var(--gold-light);}
+.nav-links{display:flex; align-items:center;}
+
+/* Menu toggle (hidden on desktop) */
+.menu-toggle{
+  display:none;
+  background:transparent;
+  border:0;
+  padding:6px;
+  margin-right:10px;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  z-index:30;
+  color:var(--cream-dim);
+}
+.menu-toggle .bar{ display:block; width:20px; height:2px; background:var(--cream-dim); margin:4px 0; transition:transform 0.25s ease, opacity 0.2s ease; }
+.menu-toggle[aria-expanded="true"] .bar:nth-child(1){ transform:translateY(6px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] .bar:nth-child(2){ opacity:0; }
+.menu-toggle[aria-expanded="true"] .bar:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
+
+/* Desktop: inline navigation with lively hover interactions */
+nav a{
+  position:relative;
+  text-decoration:none;
+  font-size:15px;
+  color:var(--cream-dim);
+  margin-left:20px;
+  transition:color 0.18s ease, transform 0.18s ease;
+}
+nav a::after{
+  content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:linear-gradient(90deg,var(--gold-light), rgba(255,255,255,0)); transform:scaleX(0); transform-origin:left; transition:transform 0.22s ease;
+}
+nav a:hover{ color:var(--gold-light); transform:translateY(-3px); }
+nav a:hover::after{ transform:scaleX(1); }
+
+/* WhatsApp CTA: gradient and responsive icon/text swap */
+.cta-mini{
+  border:1px solid transparent;
+  background:linear-gradient(135deg,#25D366 0%, #128C7E 100%);
+  padding:0.46rem 0.9rem;
+  border-radius:999px;
+  color:var(--cream) !important;
+  display:inline-flex; align-items:center; gap:0.6rem;
+  box-shadow:0 6px 18px rgba(18,140,110,0.12);
+}
+.whatsapp-btn .icon{ display:none; color:var(--void); }
+
+/* Mobile behaviour */
+@media (max-width:760px){
+  .menu-toggle{ display:inline-flex; }
+  .nav-links{ position:absolute; right:16px; top:72px; display:flex; flex-direction:column; gap:8px; background:linear-gradient(180deg, rgba(18,7,12,0.98), rgba(18,7,12,0.95)); padding:12px; border-radius:12px; box-shadow:0 12px 30px rgba(0,0,0,0.6); transform-origin:top right; transform:scaleY(0); opacity:0; pointer-events:none; transition:transform 0.22s ease, opacity 0.22s ease; }
+  .nav-links.open{ transform:scaleY(1); opacity:1; pointer-events:auto; }
+  nav a{ margin:0; padding:10px 14px; border-radius:8px; display:block; }
+  nav a:hover{ transform:none; }
+  /* show icon instead of text on small screens */
+  .whatsapp-btn .icon{ display:inline-block; }
+  .whatsapp-btn .text{ display:none; }
+}
