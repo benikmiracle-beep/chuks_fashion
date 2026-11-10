@@ -284,19 +284,6 @@ section {
   background: linear-gradient(160deg, #181818, #000);
 }
 
-.swatch-tee::after {
-  content: "✚";
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 54px;
-  color: #f2f2f2;
-  opacity: 0.85;
-  font-family: 'Fraunces', serif;
-}
-
 .swatch-ankara {
   background: radial-gradient(circle at 20% 30%, var(--gold-light) 0 10px, transparent 11px), radial-gradient(circle at 70% 60%, var(--wine-light) 0 14px, transparent 15px), radial-gradient(circle at 45% 80%, var(--gold) 0 8px, transparent 9px), radial-gradient(circle at 85% 15%, var(--cream) 0 6px, transparent 7px), linear-gradient(135deg, #10202e, #0c1a26);
   background-size: 80px 80px, 100px 100px, 60px 60px, 70px 70px, cover;
